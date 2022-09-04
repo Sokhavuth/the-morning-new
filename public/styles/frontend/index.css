@@ -1,0 +1,168 @@
+/* public/styles/index.css */
+
+.Index header{
+    background-color: var(--background);
+    padding: 15px;
+    border-top: 5px solid var(--background-dark);
+}
+
+.Index header .inner{
+    display: grid;
+    grid-template-columns: 30% auto 25%;
+    align-items: center;
+}
+
+.Index header .inner .logo a{
+    font: 40px/1.5 PirataOne;
+    color: white;
+}
+
+.Index header .inner form{
+    display: grid;
+    grid-template-columns: auto 15%;
+}
+
+.Index header .inner form input{
+    font: var(--body-font);
+    padding: 1px 5px;
+}
+
+.Index header .inner .login{
+    text-align: right;
+}
+
+.Index header .inner .login a{
+    color: white;
+}
+
+.Index .post-list{
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 346.66px 346.66px 346.66px;
+    grid-gap: 0 30px;
+}
+
+.Index .post-list .theme{
+    position: relative;
+    padding-top: 90%;
+    text-align: center;
+}
+
+.Index .post-list .screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.Index .post-list .thumb{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    height: 197px;
+    overflow: hidden;
+}
+
+.Index .post-list .thumb img{
+    width: 100%;
+}
+
+.Index .post-list .title{
+    position: relative;
+    top:-100px;
+    color: var(--background-dark);
+}
+
+.Index .load-more{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.Index .load-more p{
+    font: 18px/1.5 StardosStencil;
+    color: var(--background);
+    padding-bottom: 10px;
+}
+
+.Index .load-more .load{
+    font-size: 16px;
+    color: var(--link);
+}
+
+.Index .load-more .load:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
+.Post .main{
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: auto 346.66px;
+    grid-gap: 20px;
+}
+
+.Post .main .content{
+    text-align: center;
+}
+
+.Post .main .content img{
+    width: 100%;
+}
+
+.Post .main .content .wrapper{
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.Post .main .content .wrapper a{
+    background-color: var(--background-dark);
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.Post .main .content .article{
+    background-color: white;
+    color: var(--background-dark);
+    padding: 20px;
+    text-align: left;
+}
+
+footer .credit{
+    text-align: center;
+    padding: 30px;
+}
+
+
+
+@media only screen and (max-width: 600px){
+    .Index header .inner{
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+
+    .Index header .inner .login{
+        padding-top: 10px;
+    }
+
+    .Index .post-list{
+        grid-template-columns: 346.66px;
+        margin-left: 30px ;
+    }
+
+    .Post .main{
+        grid-template-columns: 100%;
+        padding: 15px;
+    }
+
+    .Post .main .content .wrapper{
+        grid-template-columns: 100%
+    }
+
+}

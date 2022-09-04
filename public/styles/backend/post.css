@@ -1,0 +1,17 @@
+/* public/styles/backend/post.css */
+
+.Post form input{
+    font: var(--body-font);
+    width: 100%;
+    padding: 1px 5px;
+}
+
+.Post form .ck-editor__editable{
+    min-height: 300px;
+    color: black;
+}
+
+.Post form .wrapper{
+    display: grid;
+    grid-template-columns: 40% 40% auto;
+}
