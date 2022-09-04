@@ -1,0 +1,58 @@
+<!--views/frontend/home.ejs-->
+
+<link rel="stylesheet" href="styles/frontend/index.css" />
+
+<section class="Index">
+    <header>
+        <div class="top-header">
+            <div class="wrapper region">
+                <div><a href="/admin">Login</a> | <a href="/register">Register</a></div>
+                <div class="social-media">
+                    <a href="#"><img src="/images/youtube.png" /></a>
+                    <a href="#"><img src="/images/twitter.png" /></a>
+                    <a href="#"><img src="/images/facebook.png" /></a>
+                    <a href="#"><img src="/images/telegram.png" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="inner region">
+            <div class="date"><%= data.date %></div>
+            <div class="title">
+                <a href="/"><%= data.siteTitle %></a>
+                <p class="description"><%= data.description %></p>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" required name="q" 
+                placeholder="Type your work here..." />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </header>
+
+    <nav>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/frontend/menu.css" />
+        <div class="wrapper region">
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active">Home</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+            x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</section>

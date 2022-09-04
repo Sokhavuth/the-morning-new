@@ -11,6 +11,10 @@
         <script src="/scripts/jquery.js"></script>
     </head>
     <body>
-        Welcome to The Morning News!
+        <% if(data.route.includes("/admin")){ %>
+            <%- include("./backend/admin") %>
+        <% }else if(data.route.includes("/")){ %>
+            <%- include("./frontend/index") %>
+        <% } %>
     </body>
 </html>

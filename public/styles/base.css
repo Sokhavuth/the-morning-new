@@ -31,7 +31,7 @@ a:hover{
 }
 
 body{
-    background: var(--background-light);
+    background: var(--foreground);
     font: var(--body-font);
     color: var(--color);
 }

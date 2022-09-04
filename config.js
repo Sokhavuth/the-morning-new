@@ -3,8 +3,10 @@
 
 function setup(){
     const settings = {
-        siteTitle: "Apsara Templates",
+        siteTitle: "The Morning News",
         pageTitle: "Home",
+        description: "News as it happends",
+        date: (new Date()).toDateString(),
         message: "",
         count: 0,
         dpostLimit: 10,
