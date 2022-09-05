@@ -1,8 +1,8 @@
 /* public/styles/backend/index.css */
 
 .Index header{
-    background-color: var(--background);
-    border-bottom: 7px solid white;
+    background-color: var(--background-dark);
+    border-bottom: 7px solid #333961;
     margin-bottom: 20px;
 }
 
@@ -17,10 +17,11 @@
     grid-template-columns: 25% auto 25%;
     align-items: center;
     padding: 5px 0;
+    color: white;
 }
 
 .Index header .inner .title{
-    font: 28px/1.5 Limonf3;
+    font: 28px/1.5 StardosStencil, Limonf3;
 }
 
 .Index header .inner form{
@@ -43,7 +44,7 @@
 }
 
 .Index .main .sidebar{
-    background-color: var(--background);
+    background-color: var(--background-dark);
     padding: 20px;
 }
 
@@ -66,9 +67,10 @@
 
 .Index footer .info{
     text-align: center;
-    background-color: var(--background);
+    background-color: var(--background-dark);
     margin-top: 10px;
     padding: 10px 0;
+    color: white;
 }
 
 .Index footer ul{
@@ -77,7 +79,7 @@
 
 .Index footer .pagination{
     text-align: center;
-    background: var(--background);
+    background: var(--background-dark);
     padding-top: 5px;
 }
 
@@ -103,7 +105,7 @@
     grid-template-columns: 25% auto 20%;
     align-items: center;
     grid-gap: 10px;
-    background-color: var(--background);
+    background-color: var(--background-dark);
 }
 
 .Index footer ul li .thumb{

@@ -11,8 +11,10 @@
         <script src="/scripts/jquery.js"></script>
     </head>
     <body>
-        <% if(data.route.includes("/admin")){ %>
+        <% if(data.route === "/admin"){ %>
             <%- include("./backend/admin") %>
+        <% }else if(data.route.includes("/admin/")){ %>
+            <%- include("./backend/index") %>
         <% }else if(data.route.includes("/")){ %>
             <%- include("./frontend/index") %>
         <% } %>

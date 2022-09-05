@@ -42,5 +42,4 @@ app.listen(3000, 'localhost', function(){
     console.log(`This application is listening to the port: 3000`)
 })
 
-// export 'app'
 module.exports = app
