@@ -91,7 +91,6 @@ function submitForm(e){
     
         const json = JSON.stringify(videos)
         $('input[name="videos"').val(json)
-        alert(json)
     }
     
     document.forms["form"].submit()

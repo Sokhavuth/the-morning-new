@@ -7,7 +7,7 @@
 
 <section class="Post">
     <% if(data.item){ %>
-    <form action="/admin/post" method="post" onSubmit="submitForm(event)">
+    <form action="/admin/post" method="post" name="form" onSubmit="submitForm(event)">
         <input type="text" name="title" required placeholder="Title" />
         <textarea name="content" id="editor"></textarea>
         <input type="text" name="categories" required placeholder="Categories" />
@@ -26,7 +26,7 @@
         </div>
     </form>
     <% }else{ %>
-    <form action="/admin/post" method="post" onSubmit="submitForm(event)">
+    <form action="/admin/post" method="post" name="form" onSubmit="submitForm(event)">
         <input type="text" name="title" required placeholder="Title" />
         <textarea name="content" id="editor"></textarea>
         <input type="text" name="categories" required placeholder="Categories" />

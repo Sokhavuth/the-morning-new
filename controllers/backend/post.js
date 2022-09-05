@@ -1,5 +1,7 @@
 // controllers/backend/post.js
 
+const postdb = require("../../models/post")
+
 
 class Post{
     async getPage(req, res){
@@ -16,7 +18,16 @@ class Post{
             setup.username = user.title
         }
 
+        const { posts, length} = await postdb.getPosts(req, setup.dpostLimit)
+        setup.items = posts
+        setup.count = length
+
         res.render("base", { data: setup })
+    }
+
+    async createPost(req, res){
+        postdb.createPost(req)
+        res.redirect("/admin/post")
     }
 }
 

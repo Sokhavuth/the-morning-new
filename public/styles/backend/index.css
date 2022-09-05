@@ -102,7 +102,7 @@
 .Index footer ul li{
     list-style-type: none;
     display: grid;
-    grid-template-columns: 25% auto 20%;
+    grid-template-columns: 20% auto 20%;
     align-items: center;
     grid-gap: 10px;
     background-color: var(--background-dark);
@@ -119,6 +119,16 @@
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 100%;
+}
+
+.Index footer ul li .thumb .play-icon{
+    position: absolute;
+    width: 30%;
+    min-height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .Index footer ul li .title a{
@@ -131,7 +141,7 @@
 }
 
 .Index footer ul li .edit img{
-    width: 45px;
+    width: 35px;
     visibility: hidden;
 }
 
