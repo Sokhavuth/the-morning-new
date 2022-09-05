@@ -1,0 +1,54 @@
+/* public/styles/frontend/home.css */
+
+.feature-post{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 7px;
+    padding: 7px 0;
+}
+
+.feature-post a{
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.feature-post a img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.feature-post a .play-icon{
+    width: 20%;
+    min-height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.front-ad{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 7px;
+}
+
+.front-ad img{
+    width: 100%;
+}
+
+.post-title{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-gap: 0 10px;
+    align-items: center;
+    padding: 20px;
+    background: var(--background-light);
+}
+
+.post-title .title{
+    display: block;
+    font: 16px/1.5 Oswald, Bayon;
+}

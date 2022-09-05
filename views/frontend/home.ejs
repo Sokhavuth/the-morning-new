@@ -1,0 +1,29 @@
+<!--views/frontend/home.ejs-->
+
+<link rel="stylesheet" href="/styles/frontend/home.css" />
+
+<div class="feature-post">
+    <% if(data.items){ %>
+        <% for(let index=0; index<5; index++){ %>
+            <a href="/post/<%= data.items[index].key %>">
+                <img src="<%= data.items[index].thumb %>" />
+                <% if((data.items[index].videos !== "")&&(data.items[index].videos !== "[]")){ %>
+                <img class="play-icon" src="/images/play.png" />
+                <% } %>
+            </a>
+        <%  } %>
+    <% } %>
+</div>
+
+<div class="front-ad">
+    <img src="/images/front-ad.png" />
+    <img src="/images/front-ad.png" />
+</div>
+
+<div class="post-title">
+    <% for(let index=5; index<data.items.length; index++){ %>
+        <a class="title" href="/post/data.items[index].key %>">
+            <%= data.items[index].title %>
+        </a>
+    <% } %>
+</div>

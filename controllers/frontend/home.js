@@ -1,4 +1,6 @@
-// controllers/frontend
+// controllers/frontend/home.js
+
+const postdb = require("../../models/post")
 
 
 class Home{
@@ -7,7 +9,10 @@ class Home{
         setup.pageTitle = "Home"
         setup.route = "/"
 
-        res.render("base", {data: setup})
+        const { posts } = await postdb.getPosts(req, setup.fpostLimit)
+        setup.items = posts
+
+        res.render("base", { data: setup })
     }
 }
 
