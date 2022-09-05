@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 7px;
-    padding: 7px 0;
+    padding: 7px 0 0;
 }
 
 .feature-post a{
@@ -31,7 +31,8 @@
 .front-ad{
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: 7px;
+    grid-gap: 10px;
+    padding: 20px 0;
 }
 
 .front-ad img{
@@ -39,10 +40,8 @@
 }
 
 .post-title{
-    margin-top: 20px;
     display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    grid-gap: 0 10px;
+    grid-template-columns: calc(33.33% - 5px) calc(33.33% - 5px) calc(33.33% - 5px);
     align-items: center;
     padding: 20px;
     background: var(--background-light);
@@ -51,4 +50,23 @@
 .post-title .title{
     display: block;
     font: 16px/1.5 Oswald, Bayon;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 600px){
+    .feature-post{
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+
+    .front-ad{
+        grid-template-columns: 100%;
+    }
+
+    .post-title{
+        grid-template-columns: 100%;
+    }
 }

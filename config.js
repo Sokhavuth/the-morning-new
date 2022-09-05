@@ -10,7 +10,7 @@ function setup(){
         message: "",
         count: 0,
         dpostLimit: 10,
-        fpostLimit: 10,
+        fpostLimit: 65,
         username: "",
     }
 
