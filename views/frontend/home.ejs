@@ -18,11 +18,15 @@
 <div class="front-ad">
     <img src="/images/front-ad.png" />
     <img src="/images/front-ad.png" />
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/khmerweb-ad.png" />
+    <img src="/images/khmerweb-ad.png" />
 </div>
 
 <div class="post-title">
     <% for(let index=5; index<data.items.length; index++){ %>
-        <a class="title" href="/post/data.items[index].key %>">
+        <a class="title" href="/post/<%= data.items[index].key %>">
             <%= data.items[index].title %>
         </a>
     <% } %>
