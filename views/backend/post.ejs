@@ -2,39 +2,71 @@
 
 <link rel="stylesheet" href="/styles/backend/post.css" />
 <script src="/scripts/ckeditor/ckeditor.js"></script>
+<script src="/scripts/backend/addCategory.js"></script>
+<script src="/scripts/backend/video.js"></script>
 
 <section class="Post">
     <% if(data.item){ %>
-    <form action="/admin/post/edit/<%= data.item.key %>" method="post">
-        <input type="text" name="title" value="<%= data.item.title %>" 
-        required placeholder="Title" />
-        <textarea name="content" id="editor"><%= data.item.content %></textarea>
-        <div class="wrapper">
-            <input type="text" name="demo_url" value="<%= data.item.demo_url %>"
-            required placeholder="Demo URL" />
-            <input type="text" name="github" value="<%= data.item.github %>"
-            required placeholder="Repository URL" />
+    <form action="/admin/post" method="post" onSubmit="submitForm(event)">
+        <input type="text" name="title" required placeholder="Title" />
+        <textarea name="content" id="editor"></textarea>
+        <input type="text" name="categories" required placeholder="Categories" />
+        <div class="wrapper"> 
+            <select id="category" onChange="getCategory()">
+                <option>Seslect a category</option>
+                <option>News</option>
+                <option>Movie</option>
+                <option>Entertainment</option>
+                <option>Sport</option>
+            </select>
+            <input type="text" name="thumb" required placeholder="Thumbnail" />
+            <input type="datetime-local" name="datetime" required />
             <input type="submit" value="Publish" />
-            <input type="text" name="thumbnail" value="<%= data.item.thumbnail %>"
-            required placeholder="Thumbnail" />
-            <input type="datetime-local" name="datetime" value="<%= data.item.date %>" 
-            required />
-            <button></button>
+            <input type="hidden" name="videos" value="" />
         </div>
     </form>
     <% }else{ %>
-    <form action="/admin/post" method="post">
+    <form action="/admin/post" method="post" onSubmit="submitForm(event)">
         <input type="text" name="title" required placeholder="Title" />
         <textarea name="content" id="editor"></textarea>
-        <div class="wrapper">
-            <input type="text" name="demo_url" required placeholder="Demo URL" />
-            <input type="text" name="github" required placeholder="Repository URL" />
-            <input type="submit" value="Publish" />
-            <input type="text" name="thumbnail" required placeholder="Thumbnail" />
+        <input type="text" name="categories" required placeholder="Categories" />
+        <div class="wrapper"> 
+            <select id="category" onChange="getCategory()">
+                <option>Seslect a category</option>
+                <option>News</option>
+                <option>Movie</option>
+                <option>Entertainment</option>
+                <option>Sport</option>
+            </select>
+            <input type="text" name="thumb" required placeholder="Thumbnail" />
             <input type="datetime-local" name="datetime" required />
-            <button></button>
+            <input type="submit" value="Publish" />
+            <input type="hidden" name="videos" value="" />
         </div>
     </form>
     <% } %>
+
+    <div class='form'>
+        <select name='type'>
+            <option>YouTube</option>
+            <option>YouTubePlaylist</option>
+            <option>Facebook</option>
+            <option>OK</option>
+            <option>Dailymotion</option>
+            <option>Vimeo</option>
+        </select>
+        <input name='videoid' type='text' placeholder="Video ID" required />
+        <select name='status'>
+            <option>End</option>
+            <option>Continue</option>
+            <option>~ End</option>
+        </select>
+        <input onclick='genJson()' type="button" value="Insert video" />
+    </div>
+
+    <div class='viddata'>
+        <div></div>
+    </div>
+
+    <script src="/scripts/ckeditor/config.js"></script>
 </section>
-<script src="/scripts/ckeditor/config.js"></script>
