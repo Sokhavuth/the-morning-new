@@ -7,10 +7,13 @@
 
 <section class="Post">
     <% if(data.item){ %>
-    <form action="/admin/post" method="post" name="form" onSubmit="submitForm(event)">
-        <input type="text" name="title" required placeholder="Title" />
-        <textarea name="content" id="editor"></textarea>
-        <input type="text" name="categories" required placeholder="Categories" />
+    <form action="/admin/post/edit/<%= data.item.key %>" method="post" name="form" 
+    onSubmit="submitForm(event)">
+        <input type="text" name="title" value="<%= data.item.title %>"
+        required placeholder="Title" />
+        <textarea name="content" id="editor"><%= data.item.content %></textarea>
+        <input type="text" name="categories" value="<%= data.item.categories.toString() %>"
+        required placeholder="Categories" />
         <div class="wrapper"> 
             <select id="category" onChange="getCategory()">
                 <option>Seslect a category</option>
@@ -19,10 +22,12 @@
                 <option>Entertainment</option>
                 <option>Sport</option>
             </select>
-            <input type="text" name="thumb" required placeholder="Thumbnail" />
-            <input type="datetime-local" name="datetime" required />
+            <input type="text" name="thumb" value="<%= data.item.thumb %>"
+            required placeholder="Thumbnail" />
+            <input type="datetime-local" name="datetime" value="<%= data.item.date %>" 
+            required />
             <input type="submit" value="Publish" />
-            <input type="hidden" name="videos" value="" />
+            <input type="hidden" name="videos" value="<%= data.item.videos %>" />
         </div>
     </form>
     <% }else{ %>
@@ -67,6 +72,35 @@
     <div class='viddata'>
         <div></div>
     </div>
+    <% if(data.item){ %>
+    <script>
+    let is_video = null
+    is_video = JSON.parse('<%- data.item.videos %>')
+  
+    if((is_video !== '') && (is_video !== '[]')){
+        let html = ''
+        let episode = is_video.length
+      
+        for(let video of is_video){
+            html += "<div>"
+            html += '<input value="'+video.type+'" required />'
+            html += '<input value="'+video.id+'" required />'
+            html += '<input value="'+video.status+'" required />'
+            html += '<p title="Delete" onClick="deleteRow(event)" class="episode">'+(episode--)+'</p>'
+            html += "</div>"
+        }
+  
+        if($('.viddata div').html() === ''){
+          $('.viddata div').append('<b>Video type</b>')
+          $('.viddata div').append('<b>Video id</b>')
+          $('.viddata div').append('<b>Status</b>')
+          $('.viddata div').append('<b>Part/Delete</b>')
+        }
+      
+        $('.viddata div:eq(0)' ).after(html)
+    }
+    </script>
+    <% } %>
 
     <script src="/scripts/ckeditor/config.js"></script>
 </section>

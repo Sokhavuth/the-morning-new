@@ -65,6 +65,32 @@ class Post{
         const length = allItems.length
         return { posts, length }
     }
+
+    async updatePost(req){
+        let categories = []
+
+        if(req.body.categories.includes(',')){
+            categories = req.body.categories.split(',')
+        }else{
+            categories = [req.body.categories]
+        }
+
+        const updatedPost = {
+            title: req.body.title,
+            content: req.body.content,
+            categories: categories,
+            thumb: req.body.thumb,
+            date: req.body.datetime,
+            videos: req.body.videos,
+        }
+
+        await req.mydb.posts.update(updatedPost, req.params.key)
+    }
+
+    async deletePost(req){
+        await req.mydb.posts.delete(req.params.key)
+    }
+
 }
 
 

@@ -102,10 +102,11 @@
 .Index footer ul li{
     list-style-type: none;
     display: grid;
-    grid-template-columns: 20% auto 20%;
+    grid-template-columns: 20% 60% auto;
     align-items: center;
     grid-gap: 10px;
     background-color: var(--background-dark);
+    color: white;
 }
 
 .Index footer ul li .thumb{
@@ -131,9 +132,18 @@
     transform: translate(-50%, -50%);
 }
 
+.Index footer ul li .title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .Index footer ul li .title a{
     font: 16px/1.5 Oswald, Koulen;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .Index footer ul li .edit{

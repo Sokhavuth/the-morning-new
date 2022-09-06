@@ -8,6 +8,7 @@ class Post{
         const setup = req.mysetup()
         setup.pageTitle = "Post page"
         setup.route = "/admin/post"
+        setup.type = "post"
 
         const { sessionid } = req.signedCookies
         let user = false
@@ -27,6 +28,47 @@ class Post{
 
     async createPost(req, res){
         postdb.createPost(req)
+        res.redirect("/admin/post")
+    }
+
+    async editPost(req, res){
+        const setup = req.mysetup()
+        setup.pageTitle = "Edit post page"
+        setup.route = "/admin/post"
+        setup.type = "post"
+        setup.username = req.myusername
+
+        const { posts, length} = await postdb.getPosts(req, setup.dpostLimit)
+        setup.items = posts
+        setup.count = length
+        setup.item = await postdb.getPost(req)
+
+        res.render("base", { data: setup })
+    }
+
+    async updatePost(req, res){
+        if(req.myuser.role === "Author"){
+            const post = await postdb.getPost(req)
+            if(req.myuser.id === post.userid){
+                postdb.updatePost(req)
+            }
+        }else{
+            postdb.updatePost(req)
+        }
+
+        res.redirect("/admin/post")
+    }
+
+    async deletePost(req, res){
+        if(req.myuser.role === "Author"){
+            const post = await postdb.getPost(req)
+            if(req.myuser.id === post.userid){
+                postdb.deletePost(req)
+            }
+        }else{
+            postdb.deletePost(req)
+        }
+
         res.redirect("/admin/post")
     }
 }
