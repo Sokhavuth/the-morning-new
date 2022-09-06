@@ -1,6 +1,7 @@
 <!--views/frontend/home.ejs-->
 
 <link rel="stylesheet" href="/styles/frontend/home.css" />
+<script src="/scripts/paginate.js"></script>
 
 <div class="feature-post">
     <% if(data.items){ %>
@@ -17,6 +18,7 @@
                 <% if((data.items[index].videos !== "")&&(data.items[index].videos !== "[]")){ %>
                 <img class="play-icon" src="/images/play.png" />
                 <% } %>
+                <p class="title"><%= data.items[index].title %></p>
             </a>
         <%  } %>
     <% } %>
@@ -39,4 +41,17 @@
             </a>
         <% } %>
     <% } %>
+</div>
+
+<div class="pagination">
+    <p>
+        <% if(data.count - data.page*data.fpostLimit === 1){ %>
+            1 more post
+        <% }else if(data.count - data.page*data.fpostLimit <= 0){ %>
+            no more post
+        <% }else{ %>
+            <%= data.count - data.page*data.fpostLimit %> more posts
+        <% } %>
+    </p>
+    <img class="load" onclick="paginate()" src="/images/loadmore.png" />
 </div>

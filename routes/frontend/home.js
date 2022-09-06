@@ -9,5 +9,9 @@ router.get("/", async (req, res) => {
     home.getPage(req, res)
 })
 
+router.post("/paginate", async (req, res) => {
+    home.paginate(req, res)
+})
+
 
 module.exports = router

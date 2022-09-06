@@ -29,6 +29,8 @@
 .Post .main .content .video .screen div{
     position: relative;
     padding-top: 56.25%;
+    border: 1px solid lightgrey;
+    border-bottom: none;
 }
 
 .Post .main .content .video .screen div iframe{
@@ -37,8 +39,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid lightgrey;
-    border-bottom: none;
 }
 
 .Post .main .content .video .playlist{
@@ -66,4 +66,10 @@
 .Post .main .content .video .playlist .part:hover{
     cursor: pointer;
     opacity: .7;
+}
+
+@media screen and (max-width: 600px){
+    .Post .main{
+        grid-template-columns: 100%;
+    }
 }

@@ -52,6 +52,19 @@ class Post{
     async getPost(req){
         return await req.mydb.posts.get(req.params.key)
     }
+
+    async paginate(req, amount){
+        const allItems = await this.getAllItems(req)
+        allItems.sort((a, b) => {     
+            let da = new Date(a.date)
+            let db = new Date(b.date)
+            return db - da
+        })
+        const page = parseInt(req.body.page)
+        const posts = allItems.slice(page*amount, (page + 1)*amount)
+        const length = allItems.length
+        return { posts, length }
+    }
 }
 
 
