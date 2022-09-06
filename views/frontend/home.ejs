@@ -4,7 +4,14 @@
 
 <div class="feature-post">
     <% if(data.items){ %>
-        <% for(let index=0; index<5; index++){ %>
+        <%
+        if(data.items.length < 5){
+            var condition = data.items.length
+        }else{
+            var condition = 5
+        }
+        %>
+        <% for(let index=0; index<condition; index++){ %>
             <a href="/post/<%= data.items[index].key %>">
                 <img src="<%= data.items[index].thumb %>" />
                 <% if((data.items[index].videos !== "")&&(data.items[index].videos !== "[]")){ %>
@@ -25,9 +32,11 @@
 </div>
 
 <div class="post-title">
-    <% for(let index=5; index<data.items.length; index++){ %>
-        <a class="title" href="/post/<%= data.items[index].key %>">
-            <%= data.items[index].title %>
-        </a>
+    <% if(data.items.length > 5){ %>
+        <% for(let index=5; index<data.items.length; index++){ %>
+            <a class="title" href="/post/<%= data.items[index].key %>">
+                <%= data.items[index].title %>
+            </a>
+        <% } %>
     <% } %>
 </div>

@@ -5,7 +5,7 @@ function setup(){
     const settings = {
         siteTitle: "The Morning News",
         pageTitle: "Home",
-        description: "News as it happends",
+        description: "News as it happens",
         date: (new Date()).toDateString(),
         message: "",
         count: 0,

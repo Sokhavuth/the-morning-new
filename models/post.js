@@ -37,7 +37,6 @@ class Post{
     }
 
     async getPosts(req, amount){
-        const setup = req.mysetup()
         const allItems = await this.getAllItems(req)
         allItems.sort((a, b) => {     
             let da = new Date(a.date)
@@ -48,6 +47,10 @@ class Post{
         const posts = allItems.slice(0, amount)
         const length = allItems.length
         return { posts, length }
+    }
+
+    async getPost(req){
+        return await req.mydb.posts.get(req.params.key)
     }
 }
 

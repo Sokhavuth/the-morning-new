@@ -28,10 +28,10 @@ function setScreen(video,id,click){
 
     if(click){
         $('.Post .video .playlist #part'+clicked)
-            .css({'background':'rgb(0, 0, 66)'})
+            .css({'background':'lavender', 'color': 'black'})
     }
     $('.Post .video .playlist #part'+id)
-        .css({'background':'var(--background)'})
+        .css({'background':'rgb(0, 117, 117)', 'color': 'white'})
 
 
     $('.screen').html(iframe)
