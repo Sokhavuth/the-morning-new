@@ -69,5 +69,19 @@ router.get("/delete/:key", async (req, res) => {
     }
 })
 
+router.post("/paginate", async (req, res) => {
+    const { sessionid } = req.signedCookies
+    let user = false
+    if(sessionid){
+        user = await req.mydb.session.get(sessionid)
+    }
+    
+    if(user){
+        post.paginate(req, res)
+    }else{
+        res.redirect("/admin")
+    }
+})
+
 
 module.exports = router

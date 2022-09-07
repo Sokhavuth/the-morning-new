@@ -71,6 +71,15 @@ class Post{
 
         res.redirect("/admin/post")
     }
+
+    async paginate(req, res){
+        const setup = req.mysetup()
+        const { posts, length } = await postdb.paginate(req, setup.dpostLimit)
+        setup.items = posts
+        setup.count = length
+        setup.type = "post"
+        res.json(setup)
+    }
 }
 
 

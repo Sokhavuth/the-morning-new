@@ -1,4 +1,4 @@
-//public/scripts/admin/paginate.js
+//public/scripts/backend/paginate.js
 
 let page = 0
 
@@ -7,18 +7,21 @@ function paginate(route){
     page += 1
     
     $.post(`${route}/paginate`,{page:page},function(data, status){
-        appendItem(data.items,route,data)
+        appendItem(data.items, route, data)
     })
 }
 
-function appendItem(items, route,data){
+function appendItem(items, route, data){
     let html = ''
     
     if(items){
         for(let item of items){
             html += `<li>`
-            html += `<a class="thumb" href="${data.type}/${item.key}">`
-            html += `<img src="${item.thumbnail}" />`
+            html += `<a class="thumb" href="/${data.type}/${item.key}">`
+            html += `<img src="${item.thumb}" />`
+            if((item.videos !== "")&&(item.videos !== "[]")){
+                html+= `<img class="play-icon" src="/images/play.png" />`
+            }
             html += `</a>`
             html += `<div class="container">`
             html += `<div class="title">`
