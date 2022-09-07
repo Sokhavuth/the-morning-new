@@ -44,6 +44,8 @@
         <div class="content">
             <% if(data.route.includes("/post")){ %>
                 <%- include("./post.ejs") %>
+            <% }else if(data.route.includes("/category")){ %>
+                <%- include("./category.ejs") %>
             <% }else if(data.route.includes("/upload")){ %>
                 <%- include("./upload.ejs") %>
             <% } %>
@@ -58,8 +60,10 @@
                     <li>
                         <a class="thumb" href="/<%= data.type %>/<%= item.key %>">
                             <img src="<%= item.thumb %>" />
-                            <% if((item.videos !== "")&&(item.videos !== "[]")){ %>
-                            <img class="play-icon" src="/images/play.png" />
+                            <% if(item.videos){ %>
+                                <% if((item.videos !== "")&&(item.videos !== "[]")){ %>
+                                    <img class="play-icon" src="/images/play.png" />
+                                <% } %>
                             <% } %>
                         </a>
                         <div class="container">

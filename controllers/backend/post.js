@@ -1,6 +1,7 @@
 // controllers/backend/post.js
 
 const postdb = require("../../models/post")
+const categorydb = require("../../models/category")
 
 
 class Post{
@@ -22,6 +23,7 @@ class Post{
         const { posts, length} = await postdb.getPosts(req, setup.dpostLimit)
         setup.items = posts
         setup.count = length
+        setup.categories = await categorydb.getAllItems(req)
 
         res.render("base", { data: setup })
     }
@@ -42,6 +44,7 @@ class Post{
         setup.items = posts
         setup.count = length
         setup.item = await postdb.getPost(req)
+        setup.categories = await categorydb.getAllItems(req)
 
         res.render("base", { data: setup })
     }

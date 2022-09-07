@@ -26,6 +26,7 @@ const deta = Deta(process.env.PROJECT_KEY)
 db.users = deta.Base("the_morning_news_users")
 db.session = deta.Base("the_morning_news_session")
 db.posts = deta.Base("the_morning_news_posts")
+db.categories = deta.Base("the_morning_news_categories")
 db.upload = deta.Drive("upload")
 
 module.exports = { setup, db }

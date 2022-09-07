@@ -1,12 +1,24 @@
-// routes/backend/post.js
+// routes/backend/category.js
 
 const express = require("express")
 const router = express.Router()
 
-const post = require("../../controllers/backend/post")
+const category = require("../../controllers/backend/category")
+
 
 router.get("/", async (req, res) => {
-    post.getPage(req, res)
+    const { sessionid } = req.signedCookies
+    let user = false
+    if(sessionid){
+        user = await req.mydb.session.get(sessionid)
+    }
+    
+    if(user){
+        req.myusername = user.title
+        category.getPage(req, res)
+    }else{
+        res.redirect("/admin")
+    }
 })
 
 router.post("/", async (req, res) => {
@@ -16,9 +28,9 @@ router.post("/", async (req, res) => {
         user = await req.mydb.session.get(sessionid)
     }
     
-    if(user && (user.role in {"Admin":1, "Editor":1, "Author":1})){
-        req.myuserid = user.key
-        post.createPost(req, res)
+    if(user && (user.role === "Admin")){
+        req.myusername = user.title
+        category.createCategory(req, res)
     }else{
         res.redirect("/admin")
     }
@@ -33,7 +45,7 @@ router.get("/edit/:key", async (req, res) => {
     
     if(user){
         req.myusername = user.title
-        post.editPost(req, res)
+        category.editCategory(req, res)
     }else{
         res.redirect("/admin")
     }
@@ -46,9 +58,8 @@ router.post("/edit/:key", async (req, res) => {
         user = await req.mydb.session.get(sessionid)
     }
     
-    if(user && (user.role in {"Admin":1, "Editor":1, "Author":1})){
-        req.myuser = user 
-        post.updatePost(req, res)
+    if(user && (user.role === "Admin")){
+        category.updateCategory(req, res)
     }else{
         res.redirect("/admin")
     }
@@ -61,9 +72,8 @@ router.get("/delete/:key", async (req, res) => {
         user = await req.mydb.session.get(sessionid)
     }
     
-    if(user && (user.role in {"Admin":1, "Author":1})){
-        req.myuser = user 
-        post.deletePost(req, res)
+    if(user && (user.role === "Admin")){
+        category.deleteCategory(req, res)
     }else{
         res.redirect("/admin")
     }
@@ -77,7 +87,7 @@ router.post("/paginate", async (req, res) => {
     }
     
     if(user){
-        post.paginate(req, res)
+        category.paginate(req, res)
     }else{
         res.redirect("/admin")
     }
