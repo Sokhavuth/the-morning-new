@@ -5,7 +5,7 @@ const settingdb = require("../../models/setting")
 
 class Setting{
     async getPage(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Settings page"
         setup.route = "/admin/setting"
         setup.username = req.myusername
