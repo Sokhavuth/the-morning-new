@@ -6,7 +6,7 @@ const crypto = require('crypto')
 
 class Upload{
     async getPage(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Upload page"
         setup.route = "/admin/upload"
 
@@ -14,7 +14,7 @@ class Upload{
     }
 
     async insertFile(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Upload page"
         setup.route = "/admin/upload"
         
@@ -25,7 +25,7 @@ class Upload{
     }
 
     async getFile(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Upload/page"
         setup.route = "/admin/upload"
 

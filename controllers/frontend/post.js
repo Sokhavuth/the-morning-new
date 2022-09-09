@@ -5,7 +5,7 @@ const postdb = require("../../models/post")
 
 class Post{
     async getPost(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Post page"
         setup.route = "/post"
 

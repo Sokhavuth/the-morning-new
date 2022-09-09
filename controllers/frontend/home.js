@@ -5,7 +5,7 @@ const postdb = require("../../models/post")
 
 class Home{
     async getPage(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Home"
         setup.route = "/"
 
@@ -18,7 +18,7 @@ class Home{
     }
 
     async paginate(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         const { posts, length } = await postdb.paginate(req, setup.fpostLimit)
         setup.count = length
         setup.items = posts

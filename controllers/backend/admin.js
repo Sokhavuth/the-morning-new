@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs")
 
 class Admin{
     async getLogin(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Login Page"
         setup.route = "/admin"
 
@@ -14,7 +14,7 @@ class Admin{
     }
 
     async auth(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         const users = await userdb.checkUser(req)
         
         if(users.count){

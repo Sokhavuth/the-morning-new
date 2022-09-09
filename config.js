@@ -1,17 +1,19 @@
 // config.js
 // npm install deta
 
-function setup(){
+async function setup(){
+    const setting = await db.setting.get("61pett3k4zzf")
     const settings = {
-        siteTitle: "The Morning News",
-        pageTitle: "Home",
-        description: "News as it happens",
+        siteTitle: setting.siteTitle,
+        description: setting.description,
         date: (new Date()).toDateString(),
+        dpostLimit: setting.ditemLimit,
+        fpostLimit: setting.fitemLimit,
+        categoryItemLimit: setting.categoryItemLimit,
+        pageTitle: "Home",
+        username: "",
         message: "",
         count: 0,
-        dpostLimit: 10,
-        fpostLimit: 65,
-        username: "",
     }
 
     return settings
@@ -27,6 +29,7 @@ db.users = deta.Base("the_morning_news_users")
 db.session = deta.Base("the_morning_news_session")
 db.posts = deta.Base("the_morning_news_posts")
 db.categories = deta.Base("the_morning_news_categories")
+db.setting = deta.Base("the_morning_news_setting")
 db.upload = deta.Drive("upload")
 
 module.exports = { setup, db }

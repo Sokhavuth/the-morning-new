@@ -18,5 +18,8 @@ router.use("/upload", uploadRouter)
 const userRouter = require("./backend/user")
 router.use("/user", userRouter)
 
+const settingRouter = require("./backend/setting")
+router.use("/setting", settingRouter)
+
 
 module.exports = router

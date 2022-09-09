@@ -6,7 +6,7 @@ const categorydb = require("../../models/category")
 
 class Post{
     async getPage(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Post page"
         setup.route = "/admin/post"
         setup.type = "post"
@@ -34,7 +34,7 @@ class Post{
     }
 
     async editPost(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Edit post page"
         setup.route = "/admin/post"
         setup.type = "post"
@@ -76,7 +76,7 @@ class Post{
     }
 
     async paginate(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         const { posts, length } = await postdb.paginate(req, setup.dpostLimit)
         setup.items = posts
         setup.count = length

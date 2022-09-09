@@ -5,7 +5,7 @@ const userdb = require("../../models/user")
 
 class User{
     async getPage(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Users page"
         setup.route = "/admin/user"
         setup.type = "user"
@@ -32,7 +32,7 @@ class User{
     }
 
     async editUser(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         setup.pageTitle = "Edit user"
         setup.route = "/admin/user"
         setup.type = "user"
@@ -61,7 +61,7 @@ class User{
     }
 
     async paginate(req, res){
-        const setup = req.mysetup()
+        const setup = await req.mysetup()
         const { users, length } = await userdb.paginate(req, setup.dpostLimit)
         setup.items = users
         setup.count = length
