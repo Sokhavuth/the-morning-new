@@ -12,5 +12,11 @@ router.use("/post", postRouter)
 const categoryRouter = require("./backend/category")
 router.use("/category", categoryRouter)
 
+const uploadRouter = require("./backend/upload")
+router.use("/upload", uploadRouter)
+
+const userRouter = require("./backend/user")
+router.use("/user", userRouter)
+
 
 module.exports = router

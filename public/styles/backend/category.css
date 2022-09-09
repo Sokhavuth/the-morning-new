@@ -1,5 +1,10 @@
 /* public/styles/backend/category.css */
 
+.content{
+    background-color: var(--background-light);
+    padding: 20px;
+}
+
 .Category form{
     width: 60%;
     display: grid;

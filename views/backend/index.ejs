@@ -48,6 +48,8 @@
                 <%- include("./category.ejs") %>
             <% }else if(data.route.includes("/upload")){ %>
                 <%- include("./upload.ejs") %>
+            <% }else if(data.route.includes("/user")){ %>
+                <%- include("./user.ejs") %>
             <% } %>
         </div>
     </div>
@@ -88,6 +90,14 @@
                 <% } %>
             <% } %>
         </ul>
+
+        <% if(data.route === '/admin/user'){ %>
+            <script>
+            $('.footer ul li').css({'grid-template-columns':'13% auto 25%'})
+            $('.footer ul li .thumb').css({'padding-top':'100%'})
+            $('.footer ul li .thumb img').css({'border-radius':'50%'})
+            </script>
+        <% } %>
 
         <div class="pagination">
             <img onclick="paginate('<%= data.route %>')" src="/images/loadmore.png" />

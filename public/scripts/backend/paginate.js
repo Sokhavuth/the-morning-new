@@ -49,9 +49,9 @@ function appendItem(items, route, data){
     $('.footer ul').append(html)
 
     if(route === '/admin/user'){
-        $('.Listing .list li').css({'grid-template-columns':'13% auto 25%'})
-        $('.Listing .list li .thumb').css({'padding-top':'100%'})
-        $('.Listing .list li .thumb img').css({'border-radius':'50%'})
+        $('.footer ul li').css({'grid-template-columns':'13% auto 25%'})
+        $('.footer ul li .thumb').css({'padding-top':'100%'})
+        $('.footer ul li .thumb img').css({'border-radius':'50%'})
     }
 
     $('.pagination img').attr('src', '/images/loadmore.png')

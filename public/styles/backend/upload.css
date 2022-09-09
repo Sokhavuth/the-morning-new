@@ -1,5 +1,9 @@
 /* public/styles/backend/upload.css */
 
+.content{
+    background-color: var(--background-light);
+    padding: 20px;
+}
 .Upload form{
     display: grid;
     grid-template-columns: 50%;
