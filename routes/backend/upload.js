@@ -14,6 +14,9 @@ router.get("/", async (req, res) => {
     }
 
     if(user){
+        req.myusername = user.title
+        console.log(user)
+
         upload.getPage(req, res)
     }else{
         res.redirect("/admin")
@@ -27,10 +30,10 @@ router.post("/", async (req, res) => {
         user = await req.mydb.session.get(sessionid)
     }
 
-    if(user){
+    if(user && (user.role !== "Guest")){
         upload.insertFile(req, res)
     }else{
-        res.redirect("/admin")
+        res.redirect("/admin/post")
     }
 })
 

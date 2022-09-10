@@ -21,5 +21,8 @@ router.use("/user", userRouter)
 const settingRouter = require("./backend/setting")
 router.use("/setting", settingRouter)
 
+const searchRouter = require("./backend/search")
+router.use("/search", searchRouter)
+
 
 module.exports = router

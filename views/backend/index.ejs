@@ -8,10 +8,10 @@
         <div class="inner region">
             <div class="title"><%= data.pageTitle %></div>
             <form action="/admin/search" method="post">
-                <select name="admin_type">
-                    <option>Post</option>
-                    <option>Category</option>
-                    <option>User</option>
+                <select name="admin_search_type">
+                    <option>posts</option>
+                    <option>categories</option>
+                    <option>users</option>
                 </select>
                 <input type="text" name="q" required placeholder="Type your word here..." />
                 <input type="submit" value="Search" />
@@ -52,6 +52,8 @@
                 <%- include("./user.ejs") %>
             <% }else if(data.route.includes("/setting")){ %>
                 <%- include("./setting.ejs") %>
+            <% }else if(data.route.includes("/search")){ %>
+                <%- include("./search.ejs") %>
             <% } %>
         </div>
     </div>
