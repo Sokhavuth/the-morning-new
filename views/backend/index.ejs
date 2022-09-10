@@ -28,6 +28,9 @@
                 <a href="/admin/post"><img src="/images/posting.png" /></a>
                 <a href="/admin/post">Post</a>
 
+                <a href="/admin/page"><img src="/images/page.png" /></a>
+                <a href="/admin/page">Page</a>
+
                 <a href="/admin/category"><img src="/images/category.png" /></a>
                 <a href="/admin/category">Category</a>
 
@@ -44,6 +47,8 @@
         <div class="content">
             <% if(data.route.includes("/post")){ %>
                 <%- include("./post.ejs") %>
+            <% }else if(data.route.includes("/page")){ %>
+                <%- include("./page.ejs") %>
             <% }else if(data.route.includes("/category")){ %>
                 <%- include("./category.ejs") %>
             <% }else if(data.route.includes("/upload")){ %>

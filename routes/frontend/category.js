@@ -10,5 +10,9 @@ router.get("/:category", async (req, res) => {
     category.getPosts(req, res)
 })
 
+router.post("/:category", async (req, res) => {
+    category.paginate(req, res)
+})
+
 
 module.exports = router

@@ -50,7 +50,7 @@
 
 .Index .main .sidebar .inner{
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: 23% auto;
     grid-gap: 15px 10px;
     align-items: center;
 }
@@ -62,7 +62,7 @@
 
 .Index .main .sidebar .inner a{
     color: white;
-    font: 19px/1.5 Oswald, Bayon;
+    font: 16px/1.5 Oswald, Bayon;
 }
 
 .Index footer .info{

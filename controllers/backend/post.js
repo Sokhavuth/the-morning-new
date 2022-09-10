@@ -53,10 +53,10 @@ class Post{
         if(req.myuser.role === "Author"){
             const post = await postdb.getPost(req)
             if(req.myuser.id === post.userid){
-                postdb.updatePost(req)
+                await postdb.updatePost(req)
             }
         }else{
-            postdb.updatePost(req)
+            await postdb.updatePost(req)
         }
 
         res.redirect("/admin/post")
@@ -66,10 +66,10 @@ class Post{
         if(req.myuser.role === "Author"){
             const post = await postdb.getPost(req)
             if(req.myuser.id === post.userid){
-                postdb.deletePost(req)
+                await postdb.deletePost(req)
             }
         }else{
-            postdb.deletePost(req)
+            await postdb.deletePost(req)
         }
 
         res.redirect("/admin/post")

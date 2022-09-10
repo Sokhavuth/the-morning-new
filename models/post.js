@@ -109,7 +109,6 @@ class Post{
         const length = allItems.length
         return { posts, length }
     }
-
 }
 
 

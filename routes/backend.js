@@ -9,6 +9,9 @@ router.use("/", adminRouter)
 const postRouter = require("./backend/post")
 router.use("/post", postRouter)
 
+const pageRouter = require("./backend/page")
+router.use("/page", pageRouter)
+
 const categoryRouter = require("./backend/category")
 router.use("/category", categoryRouter)
 

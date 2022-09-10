@@ -9,6 +9,9 @@ router.use("/", homeRouter)
 const postRouter = require("./frontend/post")
 router.use("/post", postRouter)
 
+const pageRouter = require("./frontend/page")
+router.use("/page", pageRouter)
+
 const userRouter = require("./frontend/user")
 router.use("/user", userRouter)
 
