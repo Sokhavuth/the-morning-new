@@ -7,7 +7,7 @@ function getCategory(){
     if(categories === ''){
         categories += category
     }else{
-        categories += (`, ${category}`)
+        categories += (`,${category}`)
     }
     
     $('[name=categories]').val(categories)

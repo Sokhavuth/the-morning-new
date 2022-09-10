@@ -3,11 +3,17 @@
 
 class Post{
     async getAllItems(req){
-        let result = await req.mydb.posts.fetch()
+        const category = req.params.category
+        if(category){
+            var query = {"categories?contains": category}
+        }else{
+            var query = {}
+        }
+        let result = await req.mydb.posts.fetch(query)
         let allItems = result.items
 
         while(result.last){
-            result = await req.mydb.posts.fetch({}, {last: result.last})
+            result = await req.mydb.posts.fetch(query, {last: result.last})
             allItems = allItems.concat(result.items)
         }
         

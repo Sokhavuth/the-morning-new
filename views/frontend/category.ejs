@@ -1,0 +1,23 @@
+<!--views/frontend/category.ejs-->
+
+<link rel="stylesheet" href="/styles/frontend/category.css" />
+
+<section class="Category">
+    <div class="inner region">
+        <% if(data.items){ %>
+            <% for(let item of data.items){ %>
+                
+                <a href="/post/<%= item.key %>">
+                    <img class="thumb" src="<%= item.thumb %>" />
+                    <% if(item.videos){ %>
+                        <% if((item.videos !== "")&&(item.videos !== "[]")){ %>
+                            <img class="play-icon" src="/images/play.png" />
+                        <% } %>
+                        <div class="title"><%= item.title %></div>
+                    <% } %>
+                </a>
+                
+            <% } %>
+        <% } %>
+    </div>
+</section>

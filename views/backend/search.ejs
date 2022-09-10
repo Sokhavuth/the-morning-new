@@ -9,6 +9,11 @@
             <li>
                 <a class="thumb" href="/<%= data.type %>/<%= item.key %>">
                     <img src="<%= item.thumb %>" />
+                    <% if(item.videos){ %>
+                        <% if((item.videos !== "")&&(item.videos !== "[]")){ %>
+                            <img class="play-icon" src="/images/play.png" />
+                        <% } %>
+                    <% } %>
                 </a>
                 <div class="title">
                     <a href="/<%= data.type %>/<%= item.key %>"><%= item.title %></a>

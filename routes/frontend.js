@@ -9,5 +9,14 @@ router.use("/", homeRouter)
 const postRouter = require("./frontend/post")
 router.use("/post", postRouter)
 
+const userRouter = require("./frontend/user")
+router.use("/user", userRouter)
+
+const searchRouter = require("./frontend/search")
+router.use("/search", searchRouter)
+
+const categoryRouter = require("./frontend/category")
+router.use("/category", categoryRouter)
+
 
 module.exports = router

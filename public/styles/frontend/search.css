@@ -1,4 +1,16 @@
-/* public/styles/backend/search.css */
+/* public/styles/frontend/search.css */
+
+.Search .main{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 15px;
+}
+
+.Search .main .sidebar{
+    background-color: var(--background-light);
+    padding: 20px;
+}
 
 .Search ul li{
     display: grid;
@@ -6,7 +18,7 @@
     grid-gap: 10px;
     align-items: center;
     margin-bottom: 10px;
-    background-color: var(--background);
+    background-color: var(--background-light);
 }
 
 .Search ul li:last-child{
@@ -57,4 +69,10 @@
 
 .Search ul li:hover .edit img{
     visibility: visible;
+}
+
+@media screen and (max-width: 600px){
+    .Search .main{
+        grid-template-columns: 100%;
+    }
 }

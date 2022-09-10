@@ -8,7 +8,7 @@ const userdb = require("./user")
 class Search{
     async searchItems(req, amount){
         const q = req.body.q
-        const type = req.body.admin_search_type
+        const type = req.body.search_type
 
         const query = [
             {"title?contains": q},
