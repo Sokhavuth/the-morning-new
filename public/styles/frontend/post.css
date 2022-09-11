@@ -22,6 +22,10 @@
     padding-bottom: 30px;
 }
 
+.Post .main .content .post-ad img{
+    width: 100%;
+}
+
 .Post .main .content .video{
     background: lavender;
 }
