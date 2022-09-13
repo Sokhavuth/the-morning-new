@@ -4,12 +4,12 @@
 async function setup(){
     const setting = await db.setting.get("61pett3k4zzf")
     const settings = {
-        siteTitle: setting.siteTitle,
-        description: setting.description,
+        siteTitle: "The Morning News",
+        description: "News as it happends",
         date: (new Date()).toDateString(),
-        dpostLimit: setting.ditemLimit,
-        fpostLimit: setting.fitemLimit,
-        categoryItemLimit: setting.categoryItemLimit,
+        dpostLimit: 10,
+        fpostLimit: 65,
+        categoryItemLimit: 20,
         pageTitle: "Home",
         username: "",
         message: "",
